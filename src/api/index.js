@@ -17,8 +17,20 @@ function fetchJosbList() {
 function fetchAskList() {
     return axios.get(`${config.baseUrl}ask/1.json`)
 }
+
+function fetchUserInfo(username) {
+    return axios.get(`${config.baseUrl}user/${username}.json`)    
+    // console.log(username)
+}
+
+function fetchItemInfo(id) {
+    return axios.get(`${config.baseUrl}item/${id}.json`)
+}
+
 export {
     fetchNewsList,
     fetchJosbList,
-    fetchAskList
+    fetchAskList,
+    fetchUserInfo,
+    fetchItemInfo
 }
