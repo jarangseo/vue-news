@@ -25,11 +25,6 @@ import { mapGetters } from 'vuex'
 import UserProfile from '../components/UserProfile'
 
 export default {
-    // computed: {
-    //     itemInfo() {
-    //         return this.$store.state.item
-    //     }
-    // },
     components: {
         UserProfile,
     },

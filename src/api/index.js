@@ -6,18 +6,6 @@ const config = {
 }
 
 // 2. API함수들을 정리
-function fetchNewsList() {
-    return axios.get(`${config.baseUrl}news/1.json`)
-}
-
-function fetchJosbList() {
-    return axios.get(`${config.baseUrl}jobs/1.json`)
-}
-
-function fetchAskList() {
-    return axios.get(`${config.baseUrl}ask/1.json`)
-}
-
 function fetchList(pageName) {
     return axios.get(`https://api.hnpwa.com/v0${pageName}/1.json`)
 }
@@ -32,9 +20,6 @@ function fetchItemInfo(id) {
 }
 
 export {
-    fetchNewsList,
-    fetchJosbList,
-    fetchAskList,
     fetchList,
     fetchUserInfo,
     fetchItemInfo

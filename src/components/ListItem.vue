@@ -37,36 +37,9 @@
 export default {
     computed : {
         list() {
-            // const name = this.$route.name
-            // console.log(name)
-            // switch(this.$route.path) {
-            //     case '/ask':
-            //         return this.$store.state.ask
-            //         break;
-            //     case '/jobs':
-            //         return this.$store.state.jobs
-            //         break;
-            //     case '/news':
-            //         return this.$store.state.news
-            //         break;
-            // }
             return this.$store.state.list
         }
-    },
-    // created() {
-    //     console.log(this.$route)
-    //     switch(this.$route.path) {
-    //         case '/ask':
-    //             this.$store.dispatch('FETCH_ASK')
-    //             break;
-    //         case '/jobs':
-    //             this.$store.dispatch('FETCH_JOBS')
-    //             break;
-    //         case '/news':
-    //             this.$store.dispatch('FETCH_NEWS')
-    //             break;
-    //     }
-    // }
+    }
 }
 </script>
 
