@@ -3,7 +3,8 @@ import {
     fetchJosbList, 
     fetchAskList, 
     fetchUserInfo,
-    fetchItemInfo
+    fetchItemInfo,
+    fetchList
 } from '../api/index.js'
 
 export default {
@@ -12,6 +13,7 @@ export default {
             .then((res) => {
                 console.log(res)
                 context.commit('SET_NEWS', res.data)
+                return res
             })
             .catch((e) => console.log(e))
     },
@@ -41,6 +43,14 @@ export default {
             .then(({data}) => {
                 console.log(data)
                 commit('SET_ITEM', data)
+            })
+            .catch((e) => console.log(e))
+    },
+    FETCH_LIST({commit}, pagename) {
+        fetchList(pagename)
+            .then(({data}) => {
+                console.log(data)
+                commit('SET_LIST', data)
             })
             .catch((e) => console.log(e))
     }
