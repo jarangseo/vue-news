@@ -3,12 +3,48 @@
         <router-link to="/news">News</router-link> |
         <router-link to="/jobs">Jobs</router-link> |
         <router-link to="/ask">Ask</router-link>
+        <div>
+            <button @click="loginUser1">test</button>
+            <ul>
+                <li v-for="item in items">{{item}}</li>
+            </ul>
+        </div>
     </div>
 </template>
 
 <script>
-export default {
+import axios from 'axios'
 
+export default {
+    data() {
+        return {
+            items:[]
+        }
+    },
+    methods: {
+        // test() {
+        //     axios.get('https://jsonplaceholder.typicode.com/users/1')  
+        //         .then(response => {
+        //             if(response.data.id === 1) {
+        //                 console.log('사용자가 인증되었습니다')
+        //                 axios.get('https://jsonplaceholder.typicode.com/todos')
+        //                     .then(response => {
+        //                         console.log(response)
+        //                         this.items = response.data
+        //                     })
+        //             }
+        //         })
+        //     this.loginUser1()
+        // },
+        async loginUser1() {
+            var response = await axios.get('https://jsonplaceholder.typicode.com/users/1')
+            if (response.data.id === 1){
+                var list = await axios.get('https://jsonplaceholder.typicode.com/todos')
+                this.items = list.data
+            }
+
+        }
+    }
 }
 </script>
 
