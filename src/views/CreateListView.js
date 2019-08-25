@@ -5,12 +5,9 @@ import bus from '../utils/bus.js'
 export default function CreateListView(name) {
     return {
         // 재사용할 컴포넌트 옵션들
-        name,
+        name: 'HOC Component',
         created() {
             bus.$emit('start:spinner')
-            // const name = (this.$route.name)
-            // debugger
-            // console.log(name)
             setTimeout(() => {
                 this.$store.dispatch('FETCH_LIST', this.$route.path)
                     .then(() => {

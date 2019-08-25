@@ -14,7 +14,6 @@
 
         <section>
             <div v-html="fetchedItem.content">
-                <!-- {{fetchedItem.content}} -->
             </div>
         </section>
     </div>
@@ -25,11 +24,6 @@ import { mapGetters } from 'vuex'
 import UserProfile from '../components/UserProfile'
 
 export default {
-    // computed: {
-    //     itemInfo() {
-    //         return this.$store.state.item
-    //     }
-    // },
     components: {
         UserProfile,
     },
