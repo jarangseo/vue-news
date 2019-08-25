@@ -19,7 +19,7 @@ function fetchAskList() {
 }
 
 function fetchList(pageName) {
-    return axios.get(`https://api.hnpwa.com/v0${pageName}/1.json`)
+    return axios.get(`https://api.hnpwa.com/v0/${pageName}/1.json`)
 }
 
 function fetchUserInfo(username) {

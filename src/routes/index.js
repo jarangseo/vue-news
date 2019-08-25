@@ -5,8 +5,22 @@ import JobsView from '../views/JobsView'
 import AskView from '../views/AskView'
 import UserView from '../views/UserView'
 import ItemView from '../views/ItemView'
+import bus from '../utils/bus'
+import { store } from '../store/index.js'
 
 Vue.use(VueRouter)
+
+function beforeEnter(to, from, next ) {
+    bus.$emit('start:spinner')
+    setTimeout(() => {
+    store.dispatch('FETCH_LIST', to.name)
+        .then(() => {
+            next()
+        })
+        .catch((error) => {
+        })
+    },2000)
+}
 
 export const router = new VueRouter({
     mode: 'history',
@@ -18,17 +32,20 @@ export const router = new VueRouter({
         {
             path:'/news',
             name:'news',
-            component: NewsView
+            component: NewsView,
+            beforeEnter: beforeEnter
         },
         {
             path:'/ask',
             name:'ask',
-            component: AskView
+            component: AskView,
+            beforeEnter: beforeEnter
         },
         {
             path:'/jobs',
             name:'jobs',
-            component: JobsView
+            component: JobsView,
+            beforeEnter: beforeEnter
         },
         {
             path:'/user/:id',
