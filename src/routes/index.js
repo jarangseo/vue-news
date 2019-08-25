@@ -14,7 +14,17 @@ function beforeEnter(to, from, next ) {
     bus.$emit('start:spinner')
     setTimeout(() => {
     store.dispatch('FETCH_LIST', to.name)
-        .then(() => {
+        .then((res) => {
+            console.log('here')
+            console.log(res)
+            next()
+        })
+        .catch((error) => {
+        })
+    store.dispatch('FETCH_NEWS', to.name)
+        .then((res) => {
+            console.log('here')
+            console.log(res)
             next()
         })
         .catch((error) => {

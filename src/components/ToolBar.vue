@@ -37,12 +37,16 @@ export default {
         //     this.loginUser1()
         // },
         async loginUser1() {
-            var response = await axios.get('https://jsonplaceholder.typicode.com/users/1')
-            if (response.data.id === 1){
-                var list = await axios.get('https://jsonplaceholder.typicode.com/todos')
-                this.items = list.data
+            try {
+                var response = await axios.get('https://jsonplaceholder.typicode.com/users/1')
+                if (response.data.id === 1){
+                    var list = await axios.get('https://jsonplaceholder.typicode.com/todos')
+                    this.items = list.data
+                }
+            } catch(error) {
+                // 비동기 요청 뿐만 아니라 일반적인 JS에러까지  catch
+                console.log(error)
             }
-
         }
     }
 }

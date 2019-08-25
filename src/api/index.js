@@ -6,8 +6,13 @@ const config = {
 }
 
 // 2. API함수들을 정리
-function fetchNewsList() {
-    return axios.get(`${config.baseUrl}news/1.json`)
+async function fetchNewsList() {
+    try {
+        const response = await axios.get(`${config.baseUrl}news/1.json`)
+        return response
+    } catch(error) {
+        console.log(error)
+    }
 }
 
 function fetchJosbList() {
